@@ -14,7 +14,7 @@ import './FlipToken.sol';
 contract PreSale is FlipCrowdsale {
     using SafeMath for uint256;
 
-    uint256 public constant PRESALE_TOKEN_CAP = 68 * (10**5) * (10 ** uint256(18)); // 6.8 million tokens
+    uint256 public constant PRESALE_TOKEN_CAP = 238 * (10**4) * (10 ** uint256(18)); // 2.38 million tokens
     uint256 public minPurchaseAmt = 3 ether;
 
     function PreSale(MintableToken _token, uint256 _startTime, uint256 _endTime, address _ethWallet)
