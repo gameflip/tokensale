@@ -23,6 +23,13 @@ contract MainSale is FlipCrowdsale {
         return tok.TOTAL_TOKENS().sub(tok.totalSupply());
     }
 
+    function setEndTime(uint256 _endTime) onlyOwner public {
+        require(!hasEnded());
+        require(_endTime >= now);
+        require(_endTime >= startTime);
+        endTime = _endTime;
+    }
+
     /*
      * internal functions
      */
@@ -37,7 +44,7 @@ contract MainSale is FlipCrowdsale {
         uint256 rate;
         // checks for before startTime and after endTime are handled elsewhere
         if(nowts < startTime.add(period)) {
-            rate = 240;
+            rate = 250;
         } else if(nowts < startTime.add(period).add(period)) {
             rate = 230;
         } else if(nowts < startTime.add(period).add(period).add(period)) {
